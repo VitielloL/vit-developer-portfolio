@@ -1,0 +1,3 @@
+# Ignore configuration files containing secrets and local overrides
+config.js
+.env
