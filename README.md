@@ -11,19 +11,29 @@ Página estática que busca repositórios do GitHub e monta um portfólio autom�
 
 ## Configuração via arquivo externo
 
-Você também pode usar `config.js` como um arquivo de configuração local semelhante a um `.env`. Crie ou edite `config.js` com:
+Você também pode usar `config.js` como um arquivo de configuração local semelhante a um `.env`. O projeto já ignora `config.js` e `.env` pelo `.gitignore`, então os dados sensíveis não devem vazar.
+
+Crie ou edite `config.js` com:
 
 ```js
 window.PORTFOLIO_CONFIG = {
-  githubUser: 'seu-usuario',
+  githubUser: 'VitielloL',
   githubToken: 'seu-token-pessoal',
   instagramUrl: 'https://instagram.com/seuusuario',
 };
 ```
 
-O app usará esses valores se os campos na interface estiverem vazios.
+Se quiser uma referência local de variáveis, copie `.env.example` para `.env` e mantenha o arquivo fora do repositório:
 
-> Não esqueça de manter `config.js` fora do controle de versão. Já incluí `.gitignore` para ignorá-lo.
+```env
+GITHUB_USER=VitielloL
+GITHUB_TOKEN=
+INSTAGRAM_URL=
+```
+
+Atenção: o app web atual só lê `config.js`. O `.env` é apenas um modelo local e não é carregado automaticamente pelo navegador.
+
+> Não compartilhe seu token pessoal em repositórios públicos. Se já expôs um token, revogue-o e gere um novo em `GitHub -> Settings -> Developer settings -> Personal access tokens`.
 
 ## Usar imagens locais
 

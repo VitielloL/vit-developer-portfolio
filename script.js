@@ -5,7 +5,7 @@ const githubLink = document.getElementById('github-link');
 
 const config = window.PORTFOLIO_CONFIG || {};
 const DEFAULT_GITHUB_USER = 'VitielloL';
-const getUsername = () => DEFAULT_GITHUB_USER;
+const getUsername = () => config.githubUser?.trim() || DEFAULT_GITHUB_USER;
 const getToken = () => config.githubToken?.trim() || '';
 
 const PREVIEW_DIR = 'assets/previews';
@@ -15,7 +15,8 @@ const getGitHubHeaders = () => {
   const headers = { Accept: 'application/vnd.github.v3+json' };
   const token = getToken();
   if (token) {
-    headers.Authorization = `token ${token}`;
+    const scheme = token.startsWith('github_pat_') ? 'Bearer' : 'token';
+    headers.Authorization = `${scheme} ${token}`;
   }
   return headers;
 };
