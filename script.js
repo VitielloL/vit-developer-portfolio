@@ -26,15 +26,46 @@ const normalizeUrl = url => {
   return url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`;
 };
 
+const fetchRepoReadme = async (username, repoName) => {
+  const url = `https://api.github.com/repos/${encodeURIComponent(username)}/${encodeURIComponent(repoName)}/readme`;
+  const response = await fetch(url, { headers: { ...getGitHubHeaders(), Accept: 'application/vnd.github.v3.raw' } });
+  if (!response.ok) return '';
+  return response.text();
+};
+
 const getPreviewFilename = repoName => `${repoName.toLowerCase().replace(/[^a-z0-9-_]/g, '-')}.png`;
 
+const detectFrameworkFromText = text => {
+  const normalized = (text || '').toLowerCase();
+  if (/laravel/.test(normalized)) return 'Laravel';
+  if (/next(\.js)?|nextjs/.test(normalized)) return 'Next.js';
+  if (/react|jsx|tsx/.test(normalized)) return 'React';
+  if (/angular/.test(normalized)) return 'Angular';
+  if (/\.net|dotnet|c#|csharp|asp\.net/.test(normalized)) return '.NET';
+  if (/svelte/.test(normalized)) return 'Svelte';
+  if (/vue/.test(normalized)) return 'Vue';
+  return null;
+};
+
+const getFrameworkLabel = repo => {
+  const value = `${repo.language || ''} ${repo.name || ''} ${repo.description || ''} ${repo.readme || ''}`;
+  return detectFrameworkFromText(value);
+};
+
 const getPreviewIcon = repo => {
+  const framework = getFrameworkLabel(repo);
+  if (framework === 'Laravel') return '🎯';
+  if (framework === 'Next.js') return '⏭️';
+  if (framework === 'React') return '⚛️';
+  if (framework === 'Angular') return '🌀';
+  if (framework === '.NET') return '🟦';
+  if (framework === 'Vue') return '🌀';
+  if (framework === 'Svelte') return '🌀';
+
   const language = (repo.language || '').toLowerCase();
   const name = (repo.name || '').toLowerCase();
   const description = (repo.description || '').toLowerCase();
 
-  if (/react|jsx|tsx/.test(language) || /react/.test(name) || /react/.test(description)) return '⚛️';
-  if (/vue|svelte|angular/.test(language) || /vue|svelte|angular/.test(name)) return '🌀';
   if (/python/.test(language) || /python/.test(name)) return '🐍';
   if (/node|javascript|typescript/.test(language) || /node|js|typescript/.test(name)) return '📦';
   if (/html|css/.test(language) || /html|css/.test(name)) return '🌐';
@@ -45,9 +76,7 @@ const getPreviewIcon = repo => {
 };
 
 const getPreviewLabel = repo => {
-  if (repo.language) return repo.language;
-  if (repo.homepage) return 'Web App';
-  return 'Projeto';
+  return getFrameworkLabel(repo) || repo.language || (repo.homepage ? 'Web App' : 'Projeto');
 };
 
 const renderPreview = (repo, homepageUrl) => {
@@ -175,6 +204,7 @@ const loadRepos = async () => {
     }
 
     const reposWithLanguages = await Promise.all(repos.map(async repo => {
+      let readme = '';
       try {
         const languageResponse = await fetch(repo.languages_url, { headers: getGitHubHeaders() });
         const languages = await languageResponse.json();
@@ -182,10 +212,15 @@ const loadRepos = async () => {
           .sort(([, a], [, b]) => b - a)
           .slice(0, 4)
           .map(([lang]) => lang);
-        return { ...repo, languages: sorted };
+
+        if (!getFrameworkLabel({ ...repo, languages: sorted })) {
+          readme = await fetchRepoReadme(username, repo.name).catch(() => '');
+        }
+
+        return { ...repo, languages: sorted, readme };
       } catch (e) {
         console.error('Falha ao carregar linguagens para', repo.name, e);
-        return { ...repo, languages: [] };
+        return { ...repo, languages: [], readme };
       }
     }));
 
