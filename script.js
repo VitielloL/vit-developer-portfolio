@@ -243,7 +243,7 @@ const loadRepos = async () => {
 
   setProfileDisplay(username);
 
-  const queryParams = toQueryString({ per_page: 100, sort: 'updated' });
+  const queryParams = toQueryString({ per_page: 100, sort: 'created' });
   const url = `https://api.github.com/users/${encodeURIComponent(username)}/repos?${queryParams}`;
 
   try {
