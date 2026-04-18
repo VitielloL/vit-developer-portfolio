@@ -1,4 +1,5 @@
 const statusElement = document.getElementById('status');
+const filterBarElement = document.getElementById('filter-bar');
 const repoListElement = document.getElementById('repo-list');
 const profileAvatar = document.getElementById('profile-avatar');
 const githubLink = document.getElementById('github-link');
@@ -7,6 +8,7 @@ const config = window.PORTFOLIO_CONFIG || {};
 const DEFAULT_GITHUB_USER = 'VitielloL';
 const getUsername = () => config.githubUser?.trim() || DEFAULT_GITHUB_USER;
 const getToken = () => config.githubToken?.trim() || '';
+const selectedFilters = new Set();
 
 const PREVIEW_DIR = 'assets/previews';
 const toQueryString = params => Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&');
@@ -50,6 +52,75 @@ const detectFrameworkFromText = text => {
 const getFrameworkLabel = repo => {
   const value = `${repo.language || ''} ${repo.name || ''} ${repo.description || ''} ${repo.readme || ''}`;
   return detectFrameworkFromText(value);
+};
+
+const getRepoTags = repo => {
+  const ignoredTags = new Set(['blade', 'shell', 'ejs', 'plpgsql']);
+  const tags = new Set();
+  const framework = getFrameworkLabel(repo);
+  if (framework) tags.add(framework);
+
+  const addTag = tag => {
+    const normalized = (tag || '').trim();
+    if (!normalized) return;
+    if (ignoredTags.has(normalized.toLowerCase())) return;
+    tags.add(normalized);
+  };
+
+  if (Array.isArray(repo.languages) && repo.languages.length) {
+    repo.languages.forEach(addTag);
+  } else if (repo.language?.trim()) {
+    addTag(repo.language);
+  }
+
+  return [...tags];
+};
+
+const getAllTechTags = repos => {
+  const tags = new Set();
+  repos.forEach(repo => getRepoTags(repo).forEach(tag => tags.add(tag)));
+  return [...tags].sort((a, b) => a.localeCompare(b, 'pt-BR', { sensitivity: 'base' }));
+};
+
+const renderFilterBar = tags => {
+  if (!filterBarElement) return;
+
+  filterBarElement.innerHTML = tags.map(tag => `
+    <button type="button" class="meta-pill filter-pill${selectedFilters.has(tag) ? ' filter-pill--active' : ''}" data-filter="${tag}">${tag}</button>
+  `).join('');
+
+  filterBarElement.querySelectorAll('button[data-filter]').forEach(button => {
+    button.addEventListener('click', () => {
+      const tag = button.dataset.filter;
+      if (selectedFilters.has(tag)) {
+        selectedFilters.delete(tag);
+      } else {
+        selectedFilters.add(tag);
+      }
+      renderFilterBar(tags);
+      updateRepoDisplay(window.loadedRepos || []);
+    });
+  });
+};
+
+const filterRepos = repos => {
+  if (!selectedFilters.size) return repos;
+  return repos.filter(repo => getRepoTags(repo).some(tag => selectedFilters.has(tag)));
+};
+
+const updateRepoDisplay = repos => {
+  const filteredRepos = filterRepos(repos);
+  repoListElement.innerHTML = filteredRepos.map(renderRepo).join('');
+
+  if (!filteredRepos.length) {
+    setStatus(selectedFilters.size ? 'Nenhum repositório corresponde aos filtros selecionados.' : 'Nenhum repositório encontrado para este usuário.');
+    return;
+  }
+
+  setStatus(selectedFilters.size
+    ? `Exibindo ${filteredRepos.length} de ${repos.length} repositório(s).`
+    : `Exibindo ${repos.length} repositório(s).`
+  );
 };
 
 const getPreviewIcon = repo => {
@@ -113,8 +184,9 @@ const renderRepo = repo => {
   const homepage = homepageUrl ? `<a href="${homepageUrl}" target="_blank" rel="noreferrer">Link</a>` : '';
   const preview = renderPreview(repo, homepageUrl);
   const description = repo.description ? `<p class="repo-description">${repo.description}</p>` : '';
-  const languageLabels = (repo.languages && repo.languages.length)
-    ? repo.languages.map(lang => `<span class="meta-pill">${lang}</span>`).join('')
+  const repoTags = getRepoTags(repo);
+  const languageLabels = repoTags.length
+    ? repoTags.map(tag => `<span class="meta-pill">${tag}</span>`).join('')
     : `<span class="meta-pill">${repo.language || 'Sem linguagem definida'}</span>`;
 
   return `
@@ -224,8 +296,10 @@ const loadRepos = async () => {
       }
     }));
 
-    repoListElement.innerHTML = reposWithLanguages.map(renderRepo).join('');
-    setStatus(`Exibindo ${reposWithLanguages.length} repositório(s).`);
+    window.loadedRepos = reposWithLanguages;
+    const allTags = getAllTechTags(reposWithLanguages);
+    renderFilterBar(allTags);
+    updateRepoDisplay(reposWithLanguages);
   } catch (error) {
     console.error(error);
     setStatus(error.message || 'Não foi possível carregar os repositórios. Verifique os dados e tente novamente.');
