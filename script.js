@@ -55,7 +55,7 @@ const getFrameworkLabel = repo => {
 };
 
 const getRepoTags = repo => {
-  const ignoredTags = new Set(['blade', 'shell', 'ejs', 'plpgsql']);
+  const ignoredTags = new Set(['blade', 'shell', 'ejs', 'plpgsql', 'scss']);
   const tags = new Set();
   const framework = getFrameworkLabel(repo);
   if (framework) tags.add(framework);
