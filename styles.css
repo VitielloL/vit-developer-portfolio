@@ -78,6 +78,7 @@ p {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.17);
 }
 
+.profile-link,
 .instagram-link {
   display: inline-flex;
   align-items: center;
@@ -192,6 +193,11 @@ button:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.repo-title a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .repo-links {
