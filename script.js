@@ -6,21 +6,60 @@ const githubLink = document.getElementById('github-link');
 
 const config = window.PORTFOLIO_CONFIG || {};
 const DEFAULT_GITHUB_USER = 'VitielloL';
-const getUsername = () => config.githubUser?.trim() || DEFAULT_GITHUB_USER;
-const getToken = () => config.githubToken?.trim() || '';
 const selectedFilters = new Set();
 
+const getTokenList = () => {
+  const tokens = [];
+  if (Array.isArray(config.githubTokens)) {
+    config.githubTokens.forEach(token => {
+      if (token?.trim()) tokens.push(token.trim());
+    });
+  }
+  if (config.githubToken?.trim()) {
+    tokens.unshift(config.githubToken.trim());
+  }
+  return [...new Set(tokens)];
+};
+
+const getUsername = () => config.githubUser?.trim() || DEFAULT_GITHUB_USER;
+const getToken = () => getTokenList()[0] || '';
 const PREVIEW_DIR = 'assets/previews';
 const toQueryString = params => Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&');
 
-const getGitHubHeaders = () => {
+const getGitHubHeaders = token => {
   const headers = { Accept: 'application/vnd.github.v3+json' };
-  const token = getToken();
-  if (token) {
-    const scheme = token.startsWith('github_pat_') ? 'Bearer' : 'token';
-    headers.Authorization = `${scheme} ${token}`;
-  }
+  if (!token) return headers;
+  const scheme = token.startsWith('github_pat_') ? 'Bearer' : 'token';
+  headers.Authorization = `${scheme} ${token}`;
   return headers;
+};
+
+const shouldRetryWithNextToken = async response => {
+  if (response.status === 401) return true;
+  const body = await response.clone().json().catch(() => null);
+  const message = (body?.message || '').toLowerCase();
+  return response.status === 403 && (message.includes('rate limit') || message.includes('bad credentials'));
+};
+
+const fetchWithTokenFallback = async (url, options = {}) => {
+  const tokens = getTokenList();
+  const defaultHeaders = { Accept: 'application/vnd.github.v3+json', ...(options.headers || {}) };
+  const requestOptions = { ...options, headers: defaultHeaders };
+
+  if (!tokens.length) {
+    return fetch(url, requestOptions);
+  }
+
+  let lastResponse = null;
+  for (const token of tokens) {
+    requestOptions.headers = { ...defaultHeaders, ...getGitHubHeaders(token) };
+    const response = await fetch(url, requestOptions);
+    lastResponse = response;
+    if (response.ok) return response;
+    if (!(await shouldRetryWithNextToken(response))) return response;
+  }
+
+  return lastResponse;
 };
 
 const normalizeUrl = url => {
@@ -30,7 +69,7 @@ const normalizeUrl = url => {
 
 const fetchRepoReadme = async (username, repoName) => {
   const url = `https://api.github.com/repos/${encodeURIComponent(username)}/${encodeURIComponent(repoName)}/readme`;
-  const response = await fetch(url, { headers: { ...getGitHubHeaders(), Accept: 'application/vnd.github.v3.raw' } });
+  const response = await fetchWithTokenFallback(url, { headers: { Accept: 'application/vnd.github.v3.raw' } });
   if (!response.ok) return '';
   return response.text();
 };
@@ -215,7 +254,7 @@ const setStatus = text => {
 
 const fetchAuthenticatedUser = async () => {
   const url = 'https://api.github.com/user';
-  const response = await fetch(url, { headers: getGitHubHeaders() });
+  const response = await fetchWithTokenFallback(url);
   if (!response.ok) {
     throw new Error('Falha ao obter informações do usuário autenticado. Verifique seu token.');
   }
@@ -247,7 +286,7 @@ const loadRepos = async () => {
   const url = `https://api.github.com/users/${encodeURIComponent(username)}/repos?${queryParams}`;
 
   try {
-    const response = await fetch(url, { headers: getGitHubHeaders() });
+    const response = await fetchWithTokenFallback(url);
     if (!response.ok) {
       const body = await response.json().catch(() => null);
       if (response.status === 403 && body && body.message && body.message.toLowerCase().includes('rate limit')) {
@@ -278,7 +317,7 @@ const loadRepos = async () => {
     const reposWithLanguages = await Promise.all(repos.map(async repo => {
       let readme = '';
       try {
-        const languageResponse = await fetch(repo.languages_url, { headers: getGitHubHeaders() });
+        const languageResponse = await fetchWithTokenFallback(repo.languages_url);
         const languages = await languageResponse.json();
         const sorted = Object.entries(languages)
           .sort(([, a], [, b]) => b - a)
