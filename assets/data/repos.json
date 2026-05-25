@@ -1,0 +1,389 @@
+[
+  {
+    "name": "vit-developer-portfolio",
+    "description": "Portfólio estático que consome a API do GitHub para exibir repositórios públicos com previews, links, descrições e metadata.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/vit-developer-portfolio",
+    "homepage": "https://vit-developer-portfolio.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T21:57:28Z"
+  },
+  {
+    "name": "lista-de-mercado",
+    "description": "Lista de compras interativa em HTML, CSS e JavaScript com busca, total automático e persistência no localStorage.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/lista-de-mercado",
+    "homepage": "https://lista-de-mercado-five.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-05-06T21:29:06Z"
+  },
+  {
+    "name": "plantel-ragnarock",
+    "description": "Plantel histórico de guild Ragnarok Online com registro de itens e divisão de valores. Projeto descontinuado.",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/plantel-ragnarock",
+    "homepage": "https://plantel-ragnarock.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T20:30:35Z"
+  },
+  {
+    "name": "cha-casa-nova",
+    "description": "App de lista de presentes para chá de casa nova com reservas, painel admin e integração com Supabase/WhatsApp",
+    "language": "TypeScript",
+    "html_url": "https://github.com/VitielloL/cha-casa-nova",
+    "homepage": "https://cha-casa-nova-vitisa.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T21:55:04Z"
+  },
+  {
+    "name": "delay-reverb-time-calculator",
+    "description": "Calculadora web de tempos de delay e reverb a partir do BPM para músicos e produtores.",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/delay-reverb-time-calculator",
+    "homepage": "https://delay-reverb-time-calculator-two.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T22:41:12Z"
+  },
+  {
+    "name": "mvptimer",
+    "description": "Timer leve em HTML/CSS/JS para achar MVPs em Ragnarok Online, com interface simples e foco em rastrear tempos de spawn rápido.",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/mvptimer",
+    "homepage": "https://mvptimer.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T21:55:20Z"
+  },
+  {
+    "name": "api-captura-select-terceiros",
+    "description": "Aplicação que captura valores e informações de um select de uma pagina e manipula os mesmos.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/api-captura-select-terceiros",
+    "homepage": "https://api-captura-select-terceiros.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T21:07:17Z"
+  },
+  {
+    "name": "calculadora-de-elunium",
+    "description": "Calculadora de Elunium: app web simples para calcular valores e custos com interface leve em HTML/CSS/JS.",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/calculadora-de-elunium",
+    "homepage": "https://calculadora-de-lucro-elunium.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T21:07:57Z"
+  },
+  {
+    "name": "gestao-de-pessoas-api",
+    "description": "API REST em .NET 8 para cadastro e gestão de pessoas, com CRUD, Entity Framework Core e documentação Swagger.",
+    "language": "C#",
+    "html_url": "https://github.com/VitielloL/gestao-de-pessoas-api",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T22:41:58Z"
+  },
+  {
+    "name": "task-pulse",
+    "description": "Demo em Next.js que consome uma API pública para listar tarefas dinamicamente com Tailwind CSS.",
+    "language": "TypeScript",
+    "html_url": "https://github.com/VitielloL/task-pulse",
+    "homepage": "https://req-next.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T22:27:36Z"
+  },
+  {
+    "name": "combined-charts-demo",
+    "description": "Demos estáticos de gráficos combinados de barras e linha em HTML, comparando Chart.js, Highcharts, Plotly.js e ApexCharts para protótipos",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/combined-charts-demo",
+    "homepage": "https://teste-libs-grafico.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T22:15:42Z"
+  },
+  {
+    "name": "caixa-do-vit",
+    "description": "Sistema de gestão de caixa em Laravel com controle de vendas, transações PIX e painel administrativo básico.",
+    "language": "CSS",
+    "html_url": "https://github.com/VitielloL/caixa-do-vit",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T22:04:55Z"
+  },
+  {
+    "name": "gestao-clinicas-laravel",
+    "description": "Plataforma de gestão clínica em Laravel para cadastro de profissionais, pacientes e agendamento de consultas. Ideal para clínicas pequenas e médias que precisam de um controle simples e eficiente.",
+    "language": "CSS",
+    "html_url": "https://github.com/VitielloL/gestao-clinicas-laravel",
+    "homepage": "",
+    "stargazers_count": 1,
+    "updated_at": "2026-04-17T23:10:19Z"
+  },
+  {
+    "name": "sistema-vendas-laravel",
+    "description": "Aplicação Laravel de gerenciamento de vendas com autenticação, cadastro de clientes, produtos e controle de vendas.",
+    "language": "CSS",
+    "html_url": "https://github.com/VitielloL/sistema-vendas-laravel",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-17T23:03:31Z"
+  },
+  {
+    "name": "gerenciador-usuarios-mvc",
+    "description": "Sistema ASP.NET Core MVC para cadastro, login e gerenciamento de usuários com CRUD e validação.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/gerenciador-usuarios-mvc",
+    "homepage": "",
+    "stargazers_count": 1,
+    "updated_at": "2026-04-18T02:07:42Z"
+  },
+  {
+    "name": "copa-sud-futsal",
+    "description": "Tabela, Historico de Partida e informações de jogadores, feito com HTML / CSS / JS.",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/copa-sud-futsal",
+    "homepage": "https://copa-futsal-sud.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T00:09:38Z"
+  },
+  {
+    "name": "vit-drink-jogo-da-velha",
+    "description": "🍻 Jogo da Velha do Vit - Uma versão descontraída e divertida do clássico jogo da velha,  onde o perdedor bebe uma dose. Aplicação web com HTML5, CSS3 e JavaScript puro.  Ideal para diversão entre amigos!",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/vit-drink-jogo-da-velha",
+    "homepage": "https://vit-drink-jogo-da-velha.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T15:00:19Z"
+  },
+  {
+    "name": "vit-crypto-price",
+    "description": "Dashboard em tempo real para monitorar preços de criptomoedas com a API CoinGecko",
+    "language": "CSS",
+    "html_url": "https://github.com/VitielloL/vit-crypto-price",
+    "homepage": "https://vit-crypto-price.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T15:14:10Z"
+  },
+  {
+    "name": "vit-tempo",
+    "description": "🌤️ Aplicação web para consultar clima em tempo real. Busque a temperatura, umidade e velocidade do vento de qualquer cidade do mundo.",
+    "language": "CSS",
+    "html_url": "https://github.com/VitielloL/vit-tempo",
+    "homepage": "https://vit-tempo.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T15:12:54Z"
+  },
+  {
+    "name": "internet-speed-test",
+    "description": "⚡ Teste sua velocidade de internet em segundos. Aplicação web simples desenvolvida com HTML, CSS e JavaScript vanilla.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/internet-speed-test",
+    "homepage": "https://internet-speed-test-ten.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T15:11:59Z"
+  },
+  {
+    "name": "poo-conceitos-paradigmas-programacao",
+    "description": "Projeto educacional em C# demonstrando conceitos fundamentais da Programação Orientada a Objetos (POO), incluindo herança, polimorfismo e encapsulamento.",
+    "language": "C#",
+    "html_url": "https://github.com/VitielloL/poo-conceitos-paradigmas-programacao",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T18:50:15Z"
+  },
+  {
+    "name": "market-filter-api",
+    "description": "Ferramenta flexível para filtrar e consultar dados de marketplace do Kafra Portal.  Suporta filtros por ID, nome e refinamento com interface web e CLI Node.js.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/market-filter-api",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T14:55:57Z"
+  },
+  {
+    "name": "math-calcs-c-sharp",
+    "description": "Aplicação console em C# .NET 6.0 com calculadora de geometria (círculos e triângulos) e gerenciador de inventário de produtos.",
+    "language": "C#",
+    "html_url": "https://github.com/VitielloL/math-calcs-c-sharp",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T15:05:16Z"
+  },
+  {
+    "name": "vec-website",
+    "description": "Website institucional da VEC Construções e Acabamentos, empresa especializada em projetos, construção e acabamentos. Desenvolvido com HTML, CSS e Bootstrap para apresentar os serviços oferecidos.",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/vec-website",
+    "homepage": "https://bekobraga.github.io/VEC/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T18:53:04Z"
+  },
+  {
+    "name": "analog-clock-js",
+    "description": "⏰ Relógio analógico interativo feito com HTML, CSS e JavaScript. Design moderno, animações suaves e funciona em tempo real. 🎨✨",
+    "language": "CSS",
+    "html_url": "https://github.com/VitielloL/analog-clock-js",
+    "homepage": "https://analog-clock-js-ten.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T15:21:24Z"
+  },
+  {
+    "name": "rolling-dice-app-js",
+    "description": "🎲 Aplicativo 3D para rolar dados com animações CSS3 e JavaScript vanilla. Sem dependências!",
+    "language": "CSS",
+    "html_url": "https://github.com/VitielloL/rolling-dice-app-js",
+    "homepage": "https://rolling-dice-app-js.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T15:33:37Z"
+  },
+  {
+    "name": "colorful-geometric-forms",
+    "description": "Projeto de estudo sobre animações e transições CSS com formas geométricas coloridas. Demonstra técnicas puras de CSS para criar efeitos visuais interativos.",
+    "language": "CSS",
+    "html_url": "https://github.com/VitielloL/colorful-geometric-forms",
+    "homepage": "https://colorful-geometric-forms.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T18:46:28Z"
+  },
+  {
+    "name": "react-timestamp-notes",
+    "description": "Uma aplicação React simples para registrar nomes com timestamps automáticos.  Ideal para listas de presença, registro de visitantes ou anotações rápidas com data/hora.  Construída com React, TypeScript e Vite.",
+    "language": "TypeScript",
+    "html_url": "https://github.com/VitielloL/react-timestamp-notes",
+    "homepage": "https://react-study-gules.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T15:06:50Z"
+  },
+  {
+    "name": "calculator-js",
+    "description": "Uma calculadora web moderna e responsiva com design glassmorphism. Construída com HTML, CSS e JavaScript vanilla. Operações básicas, interface intuitiva e código limpo.",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/calculator-js",
+    "homepage": "https://calculator-app-js-phi.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T14:26:41Z"
+  },
+  {
+    "name": "api-crud-laravel9x",
+    "description": "🚀 API RESTful CRUD de Pessoas com Laravel 9. Valida CPF e CEP brasileiro. Autenticação com Sanctum, arquitetura clean com Repository Pattern.",
+    "language": "PHP",
+    "html_url": "https://github.com/VitielloL/api-crud-laravel9x",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T03:03:33Z"
+  },
+  {
+    "name": "api-crud-laravel6x",
+    "description": "API RESTful com Laravel 6 para CRUD de pessoas. Inclui validação de CPF e integração com ViaCEP para validação de endereços. Arquitetura em camadas com Repositories e Services.",
+    "language": "PHP",
+    "html_url": "https://github.com/VitielloL/api-crud-laravel6x",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T02:46:26Z"
+  },
+  {
+    "name": "node-study-guide",
+    "description": "Um guia de estudo abrangente para aprender fundamentos do Node.js, templates EJS, integração com APIs, módulos de eventos, timers e códigos de status HTTP. Ideal para iniciantes no desenvolvimento web com Node.js.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/node-study-guide",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T18:56:25Z"
+  },
+  {
+    "name": "api-feeding-spa-laravel",
+    "description": "API RESTful em Laravel para gerenciamento de campanhas de desconto em produtos, organizada por cidades e grupos. Alimenta uma Single Page Application (SPA) com funcionalidades completas de CRUD para cidades, grupos, campanhas, produtos e descontos.",
+    "language": "PHP",
+    "html_url": "https://github.com/VitielloL/api-feeding-spa-laravel",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T18:58:38Z"
+  },
+  {
+    "name": "desafios-discover-rocketseat",
+    "description": "16 projetos web do Discover Rocketseat. HTML5, CSS3, JavaScript e APIs. Pratique com desafios reais incluindo portfolio, blogs, e-commerce, temas e muito mais.",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/desafios-discover-rocketseat",
+    "homepage": "https://desafios-discover-rocketseat.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T15:19:46Z"
+  },
+  {
+    "name": "work-hub-laravel",
+    "description": "WorkHub é uma plataforma moderna de marketplace para conectar profissionais freelance e prestadores de serviços com clientes em busca de talentos especializados. Desenvolvida com Laravel 9, PHP 8.1 e JavaScript, oferece um ambiente intuitivo para criar perfis profissionais, publicar vagas, buscar profissionais por localização e gerenciar projetos. ",
+    "language": "CSS",
+    "html_url": "https://github.com/VitielloL/work-hub-laravel",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T14:43:27Z"
+  },
+  {
+    "name": "maria-cor-esmalteria",
+    "description": "Sistema de gerenciamento de uma esmalteria (loja) - Laravel.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/maria-cor-esmalteria",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2022-11-11T18:30:19Z"
+  },
+  {
+    "name": "crshopmanager",
+    "description": "Sistema de gerenciamento de ordens de serviço de uma oficina mecânica - Laravel.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/crshopmanager",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2023-11-01T21:11:38Z"
+  },
+  {
+    "name": "gerenciador-pessoas-profissoes",
+    "description": "Aplicação Angular de CRUD para gerenciar pessoas e profissões usando json-server como backend simulado.",
+    "language": "TypeScript",
+    "html_url": "https://github.com/VitielloL/gerenciador-pessoas-profissoes",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T00:14:37Z"
+  },
+  {
+    "name": "angular-petportal",
+    "description": "Portal de login em Angular para aplicações pet, agora DESCONTINUADO. Template voltado para pet shops, clínicas veterinárias e serviços de adoção que não recebe novas atualizações.",
+    "language": "TypeScript",
+    "html_url": "https://github.com/VitielloL/angular-petportal",
+    "homepage": "https://lapilha-pic-pet.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T02:43:57Z"
+  },
+  {
+    "name": "animais-study-app",
+    "description": "CRUD e Filtros utilizando Angular + Node e MongoDB ou Json.",
+    "language": "TypeScript",
+    "html_url": "https://github.com/VitielloL/animais-study-app",
+    "homepage": "https://animais-app.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T19:03:32Z"
+  },
+  {
+    "name": "user-flow-api-mongo-db",
+    "description": "API REST simples para gerenciamento de usuários com Node.js, Express e MongoDB.  Implementa operações CRUD com banco de dados MongoDB usando Mongoose como ODM.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/user-flow-api-mongo-db",
+    "homepage": "",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T14:39:40Z"
+  },
+  {
+    "name": "flappy-bird",
+    "description": "🐦 Flappy Bird em JavaScript vanilla - Um jogo clássico desafiante feito com HTML5, CSS3 e JavaScript puro. Sem dependências, sem complicações!",
+    "language": "JavaScript",
+    "html_url": "https://github.com/VitielloL/flappy-bird",
+    "homepage": "https://flappy-cacau.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T14:26:25Z"
+  },
+  {
+    "name": "dropzone",
+    "description": "Dropzone utilizando HTML, CSS e Javascript.",
+    "language": "HTML",
+    "html_url": "https://github.com/VitielloL/dropzone",
+    "homepage": "https://dropzone-zeta.vercel.app/",
+    "stargazers_count": 0,
+    "updated_at": "2026-04-18T19:03:05Z"
+  }
+]
