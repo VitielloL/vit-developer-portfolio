@@ -1,12 +1,21 @@
 [
   {
+    "name": "agenda-web",
+    "description": "📅 Agenda de tarefas feita com Next.js + TypeScript + Tailwind CSS.   Projeto focado em prática de componentização e UI moderna.",
+    "language": "TypeScript",
+    "html_url": "https://github.com/VitielloL/agenda-web",
+    "homepage": "https://agenda-web-six.vercel.app",
+    "stargazers_count": 0,
+    "updated_at": "2026-06-24T02:56:51Z"
+  },
+  {
     "name": "vit-developer-portfolio",
     "description": "Portfólio estático que consome a API do GitHub para exibir repositórios públicos com previews, links, descrições e metadata.",
     "language": "JavaScript",
     "html_url": "https://github.com/VitielloL/vit-developer-portfolio",
     "homepage": "https://vit-developer-portfolio.vercel.app",
     "stargazers_count": 0,
-    "updated_at": "2026-04-18T21:57:28Z"
+    "updated_at": "2026-05-25T20:51:54Z"
   },
   {
     "name": "lista-de-mercado",
